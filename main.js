@@ -14,12 +14,14 @@ console.log("hello");
 //prima fase: preparazione
 let km
 let age
-let ticket
-let ticket_u_18
-let ticket_o_65
-let tot_u_18
-let tot_o_65
-let tot_other
+let price_ticket_general
+let price_ticket_under_18
+let price_ticket_over_65
+let cost_trip_general
+let cost_trip_under_18
+let cost_trip_over_65
+let discount_20
+let discount_40
 
 //seconda fase: raccogliamo i dati 
 km=prompt("Ciao, inserisci i km che vuoi percorrere");
@@ -28,23 +30,25 @@ console.log(km);
 age=prompt("Ciao, inserisci la tua eta")
 console.log(age);
 
-ticket=0.21;
-tot_other=km*ticket;
-console.log(tot_other);
-
-ticket_u_18=0.168;
-tot_u_18=km*ticket_u_18;
-console.log(tot_u_18);
-
-ticket_o_65=0.126;
-tot_o_65=km*ticket_o_65;
-console.log(tot_o_65);
+price_ticket_general=0.21;
 
 //terza fase: elaboriamo i dati+uotput
 if(age<18){
-    console.log(`il prezzo per gli under 18 è ${tot_u_18.toFixed(2)}€`);
+    discount_20=((price_ticket_general*20)/100);
+    console.log(discount_20);
+    price_ticket_under_18=price_ticket_general-discount_20;
+    console.log(price_ticket_under_18);
+    cost_trip_under_18=km*price_ticket_under_18;
+    console.log(`il prezzo per gli under 18 è ${cost_trip_under_18.toFixed(2)}€`);
 } else if(age>65){
-    console.log(`il prezzo per gli over 65 è ${tot_o_65.toFixed(2)}€`);
+    discount_40=((price_ticket_general*40)/100);
+    console.log(discount_40);
+    price_ticket_over_65=price_ticket_general-discount_40;
+    console.log(price_ticket_over_65);
+    cost_trip_over_65=km*price_ticket_over_65;
+    console.log(`il prezzo per gli over 65 è ${cost_trip_over_65.toFixed(2)}€`);
 } else{
-    console.log(`il prezzo è ${tot_other.toFixed(2)}€`);
+    cost_trip_general=km*price_ticket_general;
+    console.log(`il prezzo è ${cost_trip_general.toFixed(2)}€`);
 }
+
