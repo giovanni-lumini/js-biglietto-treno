@@ -42,9 +42,9 @@ console.log(tot_o_65);
 
 //terza fase: elaboriamo i dati+uotput
 if(age<18){
-    console.log(`il prezzo per gli under 18 è ${tot_u_18}€`);
+    console.log(`il prezzo per gli under 18 è ${tot_u_18.toFixed(2)}€`);
 } else if(age>65){
-    console.log(`il prezzo per gli over 65 è ${tot_o_65}€`);
+    console.log(`il prezzo per gli over 65 è ${tot_o_65.toFixed(2)}€`);
 } else{
-    console.log(`il prezzo è ${tot_other}€`);
+    console.log(`il prezzo è ${tot_other.toFixed(2)}€`);
 }
